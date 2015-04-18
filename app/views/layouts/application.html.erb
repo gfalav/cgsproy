@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "CGS SRL" %></title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <%= image_tag 'CGSlogo.png', size:'100x45' %>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+
+      <li class="divider"></li>
+
+      <li class="has-dropdown">
+        <a href="#">Proyectos</a>
+        <ul class="dropdown">
+          <li><a href="#">Proyecto</a></li>
+          <li><a href="#">Puntos</a></li>
+          <li><a href="#">Vanos</a></li>
+          <li><a href="#">Soportes</a></li>
+        </ul>
+      </li>
+
+      <li class="divider"></li>
+      
+      <li class="has-dropdown">
+        <a href="#">Cálculos</a>
+        <ul class="dropdown">
+          <li><%= link_to("Conductor", 'google.cm') %></li>
+          <li><a href="#">Soportes</a></li>
+          <li><a href="#">Fundaciones</a></li>
+        </ul>
+      </li>
+
+      <li class="divider"></li>
+      
+      <li class="has-dropdown">
+        <a href="#">Admin</a>
+        <ul class="dropdown">
+          <li><%= link_to("Conductores", conductors_path) %></li>
+          <li><%= link_to("Zonas", zonas_path) %></li>
+          <li><%= link_to("Cond Climaticas", condclimas_path) %></li>
+        </ul>
+      </li>
+
+      <li class="divider"></li>
+      
+      <li class="has-dropdown">
+        <a href="#">Usuarios</a>
+        <ul class="dropdown">
+          <li><a href="#">New</a></li>
+          <li><a href="#">LogIn</a></li>
+          <li><a href="#">LogOff</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Cálculo Mecánico de Líneas Aéreas</a></li>
+
+      <li class="divider"></li>
+      
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="Busca Proyecto...">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" class="active button expand">Search</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="divider"></li>
+      
+    </ul>
+  </section>
+</nav>
+
+
+
+  <%= yield %>
+
+
+  <!-- Pie de página -->
+  <table id="endbar">
+    <td><%= image_tag('CGSlogo.png', size:'72x32') %></td>
+    <td>Compañía General de Servicios SRL</td>
+    <td><%= image_tag('home.png', size:'32x32') %></td>
+    <td>Los Zorzales 620 <br/> Juana Koslay - San Luis</td>
+    <td><%= image_tag('mail.png', size:'32x32') %></td>
+    <td>Ing Gustavo Falavigna: <%= mail_to('gfalav@hotmail.com') %> <br/> Joaquín Pina: <%= mail_to('pinajoa@yahoo.com') %></td>
+    <td><%= image_tag('contact.png', size:'32x32') %></td>
+    <td>Tel G Falavigna: 0266 (15) 4512644 <br/> Tel J Pina: 0266 (15) 4512645</td>
+  </table>
+  </body>
+</html>

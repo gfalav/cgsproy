@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ 
+ */
+
+#endbar {
+	width: 100%;
+	border: 5px solid black;
+	border-collapse: collapse;
+}
+
+#endbar td {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 12px;
+	background-color: black;
+	color: white;
+}
+
+#endbar td a {
+	color: #2586d7;
+}

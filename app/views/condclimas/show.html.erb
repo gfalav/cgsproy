@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zona:</strong>
+  <%= @condclima.zona_id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @condclima.nombre %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @condclima.temp %>
+</p>
+
+<p>
+  <strong>Viento:</strong>
+  <%= @condclima.viento %>
+</p>
+
+<p>
+  <strong>Hielo:</strong>
+  <%= @condclima.hielo %>
+</p>
+
+<%= link_to 'Edit', edit_condclima_path(@condclima) %> |
+<%= link_to 'Back', condclimas_path %>
