@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @vano.nombre %>
+</p>
+
+<p>
+  <strong>Proyecto:</strong>
+  <%= @vano.proyecto_id %>
+</p>
+
+<p>
+  <strong>Conductor:</strong>
+  <%= @vano.conductor.nombre %>
+</p>
+
+<p>
+  <strong>Zona:</strong>
+  <%= @vano.zona.nombre %>
+</p>
+
+<p>
+  <strong>Vano:</strong>
+  <%= @vano.vano %>
+</p>
+
+<p>
+  <strong>Hconductor:</strong>
+  <%= @vano.hconductor %>
+</p>
+
+<%= link_to 'Edit', edit_vano_path(@vano) %> |
+<%= link_to 'Back', vanos_path %>

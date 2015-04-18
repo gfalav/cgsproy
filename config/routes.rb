@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vanos
   resources :condclimas
   resources :zonas
   resources :conductors

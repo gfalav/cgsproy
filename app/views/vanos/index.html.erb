@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vanos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Proyecto</th>
+      <th>Conductor</th>
+      <th>Zona</th>
+      <th>Vano</th>
+      <th>Hconductor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vanos.each do |vano| %>
+      <tr>
+        <td><%= vano.nombre %></td>
+        <td><%= vano.proyecto_id %></td>
+        <td><%= vano.conductor.nombre %></td>
+        <td><%= vano.zona.nombre %></td>
+        <td><%= vano.vano %></td>
+        <td><%= vano.hconductor %></td>
+        <td><%= link_to 'Show', vano %></td>
+        <td><%= link_to 'Edit', edit_vano_path(vano) %></td>
+        <td><%= link_to 'Destroy', vano, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vano', new_vano_path %>

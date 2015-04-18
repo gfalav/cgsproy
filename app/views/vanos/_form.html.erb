@@ -1,0 +1,49 @@
+<%= form_for(@vano) do |f| %>
+  <% if @vano.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vano.errors.count, "error") %> prohibited this vano from being saved:</h2>
+
+      <ul>
+      <% @vano.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="row">
+    <div class="large-2 columns">
+      
+
+      <div class="field">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre %>
+      </div>
+      <div class="field">
+        <%= f.label :proyecto_id %>
+        <%= f.number_field :proyecto_id %>
+      </div>
+      <div class="field">
+        <%= f.label :conductor_id %>
+        <%= select('vano', 'conductor_id', options_from_collection_for_select(@conds, :id, :nombre,@vano.conductor_id) ) %>
+      </div>
+      <div class="field">
+        <%= f.label :zona_id %>
+        <%= select(:vano, :zona_id, options_from_collection_for_select(@zonas, :id, :nombre, @vano.zona_id) )%>
+      </div>
+      <div class="field">
+        <%= f.label :vano, "Vano (m)" %>
+        <%= f.text_field :vano %>
+      </div>
+      <div class="field">
+        <%= f.label :hconductor, "Altura Conductor (m)" %>
+        <%= f.text_field :hconductor %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "button" %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  proyecto_id: 1
+  conductor_id: 1
+  zona_id: 1
+  vano: 9.99
+  hconductor: 9.99
+
+two:
+  nombre: MyString
+  proyecto_id: 1
+  conductor_id: 1
+  zona_id: 1
+  vano: 9.99
+  hconductor: 9.99
