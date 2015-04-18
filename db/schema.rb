@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418170025) do
+ActiveRecord::Schema.define(version: 20150418215910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calcconds", force: :cascade do |t|
+    t.integer  "vano_id"
+    t.integer  "condclima_id"
+    t.decimal  "temp"
+    t.decimal  "viento"
+    t.decimal  "hielo"
+    t.decimal  "tension"
+    t.decimal  "tiro"
+    t.decimal  "flecha_t"
+    t.decimal  "flecha_v"
+    t.decimal  "flecha_h"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "condclimas", force: :cascade do |t|
     t.integer  "zona_id"

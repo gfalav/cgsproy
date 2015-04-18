@@ -29,7 +29,6 @@ class VanosController < ApplicationController
   # POST /vanos.json
   def create
     @vano = Vano.new(vano_params)
-    byebug
 
     respond_to do |format|
       if @vano.save
@@ -45,7 +44,6 @@ class VanosController < ApplicationController
   # PATCH/PUT /vanos/1
   # PATCH/PUT /vanos/1.json
   def update
-    byebug
     respond_to do |format|
       if @vano.update(vano_params)
         format.html { redirect_to @vano, notice: 'Vano was successfully updated.' }

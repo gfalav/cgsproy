@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Calcconds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vano</th>
+      <th>Condclima</th>
+      <th>Temp</th>
+      <th>Viento</th>
+      <th>Hielo</th>
+      <th>Tension</th>
+      <th>Tiro</th>
+      <th>Flecha t</th>
+      <th>Flecha v</th>
+      <th>Flecha h</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calcconds.each do |calccond| %>
+      <tr>
+        <td><%= calccond.vano_id %></td>
+        <td><%= calccond.condclima_id %></td>
+        <td><%= calccond.temp %></td>
+        <td><%= calccond.viento %></td>
+        <td><%= calccond.hielo %></td>
+        <td><%= calccond.tension %></td>
+        <td><%= calccond.tiro %></td>
+        <td><%= calccond.flecha_t %></td>
+        <td><%= calccond.flecha_v %></td>
+        <td><%= calccond.flecha_h %></td>
+        <td><%= link_to 'Show', calccond %></td>
+        <td><%= link_to 'Edit', edit_calccond_path(calccond) %></td>
+        <td><%= link_to 'Destroy', calccond, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Calccond', new_calccond_path %>

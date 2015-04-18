@@ -1,3 +1,3 @@
 class Zona < ActiveRecord::Base
-	has_many :zonas
+	has_many :condclimas
 end
