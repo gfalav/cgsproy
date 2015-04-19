@@ -1,0 +1,43 @@
+<div class="ccondresult">
+	<h1>Cálculo Mecánico de Conductores</h1>
+	<p><strong>Resultados del cálculo</strong></p>
+
+	<p><strong> Conductor:</strong> <%= Conductor.find(@result[:conductor_id]).nombre %> <br/></p>
+	<p><strong> Zona Climática:</strong> <%= Zona.find(@result[:zona_id]).nombre %> <br/></p>
+	<p><strong> Vano [m]:</strong> <%= @result[:vano] %> <br/></p>
+	<p><strong> Altura Conductor [m]:</strong> <%= @result[:hconductor] %> <br/></p>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Condición</th>
+	      <th>Temperatura [C°]</th>
+	      <th>Viento [km/h]</th>
+	      <th>Hielo [mm]</th>
+	      <th>Tension [kg/mm2]</th>
+	      <th>Tiro [kg]</th>
+	      <th>Flecha t [m]</th>
+	      <th>Flecha v [m]</th>
+	      <th>Flecha h [m]</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @result[:conds].each do |calccond| %>
+	      <tr>
+	        <td><%= Condclima.find(calccond.condclima_id).nombre %></td>
+	        <td class="izq"><%= number_with_precision(calccond.temp, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.viento, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.hielo, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.tension, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.tiro, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.flecha_t, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.flecha_v, precision:2) %></td>
+	        <td class="izq"><%= number_with_precision(calccond.flecha_h, precision:2) %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<p><strong><%= link_to "Home", root_path %></strong></p>
+</div>

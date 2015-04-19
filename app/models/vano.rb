@@ -3,17 +3,24 @@ class Vano < ActiveRecord::Base
 	belongs_to :conductor
 	belongs_to :zona
 
-	def calcvano(vano_params)
+	def calcvano(zona_id, cond_id, vano, hconductor, vano_id)
 
-  		zona_id = vano_params[:zona_id].to_i
-  		cond = Conductor.find(vano_params[:conductor_id].to_i)
-  		vano = vano_params[:vano].to_f
-    	hconductor = vano_params[:hconductor].to_f
+  		cond = Conductor.find(cond_id)
+  		zona = Zona.find(zona_id)
+
+  		result = Hash.new
+  		result[:conductor_id] = cond_id
+  		result[:zona_id] = zona_id
+  		result[:vano] = vano
+  		result[:hconductor] = hconductor
+  		result[:vano_id] = vano_id
+
 
 	    tmax = fmax = tmed = k1 = k2 = k3 = 0
    		arrtmp = Array.new
     
 	    zona.condclimas.each {|c|
+	   		arrtmp = Array.new
     		flag = 0
       
 	      	pv1 = pvcond(zona_id, c.viento, 0, cond.diametro, vano, hconductor)
@@ -32,7 +39,7 @@ class Vano < ActiveRecord::Base
 	      	k1 = vano**2 * pt1**2 / 24 / (t1**2)  - cond.coef_t * c.temp - t1 / cond.coef_e / cond.seccion
 
 	      	calc = Calccond.new
-	      	calc.vano_id = vano_params[:id]
+	      	calc.vano_id = vano_id
 	      	calc.condclima_id = c.id
 	      	calc.temp = c.temp
 	      	calc.viento = c.viento
@@ -63,7 +70,7 @@ class Vano < ActiveRecord::Base
 		            	break
 	    	      	else
 	        	    	calc = Calccond.new
-	            		calc.vano_id = vano_params[:id]
+	            		calc.vano_id = vano_id
 	            		calc.condclima_id = c2.id
 			            calc.temp = c2.temp
 	    		        calc.viento = c2.viento
@@ -82,8 +89,11 @@ class Vano < ActiveRecord::Base
 	        	break
 	      	end
 	    }
-    
-	    return arrtmp
+
+
+    	arrtmp.sort! { |a,b| a.condclima_id <=> b.condclima_id }
+    	result[:conds] = arrtmp
+	    return result
   	end
 
   	def pvcond(zona_id,v,ang,d,vano,h_conductor)

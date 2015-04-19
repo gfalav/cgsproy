@@ -1,0 +1,35 @@
+<h1>Cálculo Mecánico de Conductores</h1>
+<p>Ingrese parámetros</p>
+
+<%= form_tag(controller: 'ccond', action: 'create', method: 'post') do %>
+
+  
+  <div class="row">
+    <div class="large-2 columns">
+      
+      <div class="field">
+        <%= label_tag :conductor_id %>
+        <%= select_tag('conductor_id', options_from_collection_for_select(@conds, :id, :nombre) ) %>
+      </div>
+      <div class="field">
+        <%= label_tag :zona_id %>
+        <%= select_tag( :zona_id, options_from_collection_for_select(@zonas, :id, :nombre) )%>
+      </div>
+      <div class="field">
+        <%= label_tag :vano, "Vano (m)" %>
+        <%= number_field_tag :vano, nil, in: 0..500, step: 0.1 %>
+      </div>
+      <div class="field">
+        <%= label_tag :hconductor, "Altura Conductor (m)" %>
+        <%= number_field_tag :hconductor, nil, in: 0..30, step: 0.1 %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Calcula",class:"button" %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>
