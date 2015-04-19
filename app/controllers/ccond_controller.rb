@@ -1,7 +1,7 @@
 class CcondController < ApplicationController
   def new
   	@conds = Conductor.all
-    @zonas = Zona.all
+    @zonas = Zona.all.order(:id)
     @vano = Vano.new
   end
 

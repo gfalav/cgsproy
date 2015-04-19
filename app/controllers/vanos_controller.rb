@@ -15,7 +15,7 @@ class VanosController < ApplicationController
   # GET /vanos/new
   def new
     @conds = Conductor.all
-    @zonas = Zona.all
+    @zonas = Zona.all.order(:id)
     @vano = Vano.new
   end
 
