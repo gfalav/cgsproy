@@ -65,6 +65,9 @@ class Vano < ActiveRecord::Base
 	          		if (c2.nombre=="Tmed")
 	            		tmed = t2 / cond.seccion
 	          		end
+	          		if (f2 > fmax)
+	          			fmax = f2
+	          		end
 	          		if (t2 > t1)
 	            		flag = 1
 		            	break
@@ -93,6 +96,8 @@ class Vano < ActiveRecord::Base
 
     	arrtmp.sort! { |a,b| a.condclima_id <=> b.condclima_id }
     	result[:conds] = arrtmp
+    	result[:tmax] = tmax
+    	result[:fmax] = fmax
 	    return result
   	end
 
