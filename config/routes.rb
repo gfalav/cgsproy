@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'csoporte/new'
+
+  post 'csoporte/create'
+
   get 'ccond/new'
 
   post 'ccond/create'

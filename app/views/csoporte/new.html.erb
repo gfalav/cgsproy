@@ -1,0 +1,48 @@
+<h1>Cálculo Mecánico de Soportes</h1>
+<p>Ingrese parámetros</p>
+
+<%= form_tag(controller: 'csoporte', action: 'create', method: 'post') do %>
+
+  
+  <div class="row">
+    <div class="large-2 columns">
+      
+      <div class="field">
+        <%= label_tag :tconstr_id, 'Seleccione Tipo Constructivo' %>
+
+		<select name="tconstr_id" id="tconstr_id">
+		    <option value="1" data-image="/assets/Cop Horiz 1.png"></option>
+		    <option value="2" data-image="/assets/Cop Horiz 2.png"></option>
+		    <option value="3" data-image="/assets/Cop Horiz 3.png"></option>
+		    <option value="4" data-image="/assets/Cop Vert 1.png"></option>
+		    <option value="5" data-image="/assets/Cop Vert 2.png"></option>
+		    <option value="6" data-image="/assets/Triang Asim 1.png"></option>
+		    <option value="7" data-image="/assets/Triang Asim 2.png"></option>
+		    <option value="8" data-image="/assets/Triang Sim 1.png"></option>
+		    <option value="9" data-image="/assets/Triang Sim 2.png"></option>
+		</select>
+
+
+
+
+      </div>
+      <div class="actions">
+        <%= submit_tag "Calcula",class:"button" %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>
+
+<script language="javascript">
+	$(document).ready(function(e) {
+		try {
+			$("body select").msDropDown();
+			} catch(e) {
+		alert(e.message);
+		}
+	});
+</script>
